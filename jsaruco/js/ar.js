@@ -12,7 +12,7 @@ class JsAruco{
 
   constructor(settings){
     this._detector = new window.AR.Detector();
-    this._markerSize = settings.modelSize || 39;
+    this._markerSize = settings.modelSize || 39; // size of the markers in real life in mm
     this._debug = settings.debug;
     this._video = settings.video;
 

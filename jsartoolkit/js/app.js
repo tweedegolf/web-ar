@@ -21,7 +21,7 @@ window.onload = function(){
       let ar = getARInstance({
         video: document.getElementById('feed'),
         camera: scene.camera,
-        debug: true
+        debug: false
       });
 
       document.addEventListener('ar', function(){

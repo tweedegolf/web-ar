@@ -15,7 +15,7 @@ class AR{
   constructor(settings){
     //console.log(settings);
     window.DEBUG = settings.debug; // JSARToolKit uses a global DEBUG variable (!)
-    this.scale = settings.scale || 120; // scale of the markers in real life in mm (120)
+    this.scale = settings.scale || 49; // size of the markers in real life in mm
     this.threshold = settings.threshold || 100;  // (100)
     this.camera = settings.camera;
     this.video = settings.video;
@@ -101,7 +101,8 @@ class AR{
   _setup(e){
     this.ratio = e.target.clientWidth / e.target.clientHeight;
     this.width = window.innerWidth;
-    this.height = (1 / this.ratio) * CAPTURE_WIDTH;
+    this.height = (1 / this.ratio) * this.width;
+    //this.height = (1 / this.ratio) * CAPTURE_WIDTH;
 
     this.video.width = this.width;
     this.video.height = this.height;
