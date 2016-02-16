@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Augmented Reality</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<!--
+-->
+  <script type="text/javascript" src="lib/JSARToolKit.min.js"></script>
+  <script type="text/javascript" src="build/app.js"></script>
+
+  <style>
+    html{
+      height: 100%;
+    }
+    body {
+      margin: 0px;
+      /*overflow: hidden;*/
+      font-family: sans-serif;
+      font-size: 15px;
+      height: 100%;
+    }
+    #container{
+      position: relative;
+    }
+    #threejs{
+      position: absolute;
+      z-index: 1;
+    }
+    #feed{
+      position: absolute;
+      z-index: 0;
+    }
+    #debugCanvas{
+      position: absolute;
+      bottom: 0;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="controls">
+  </div>
+
+  <div id="container">
+    <div id="threejs"></div>
+    <video id="feed" loop="true" autoplay="true" controls="controls"></video>
+  </div>
+
+</body>
+
+</html>
