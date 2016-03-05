@@ -1,6 +1,7 @@
 {
   "feed": "data/test.ogg",
   "model": "data/fiets.json",
+  "debug": true,
   "settings": {
     "scale": 1,
     "rotation": {

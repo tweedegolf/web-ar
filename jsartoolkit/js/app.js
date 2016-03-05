@@ -13,6 +13,7 @@ window.onload = function(){
   ajax({url: url, responseType: 'json'}).then(
 
     function resolve(config){
+      let debug = config.debug;
 
       let scene = new Scene({
         element: document.getElementById('threejs')
@@ -21,12 +22,20 @@ window.onload = function(){
       let ar = getARInstance({
         video: document.getElementById('feed'),
         camera: scene.camera,
-        debug: false
+        debug: debug
       });
 
       document.addEventListener('ar', function(){
         scene.update(ar.getData());
       });
+
+      let thresholdSlider = document.getElementById('threshold');
+      thresholdSlider.style.display = debug ? 'inline' : 'none';
+      if(debug){
+        thresholdSlider.addEventListener('change', function(e){
+          ar.setThreshold(e.target.valueAsNumber);
+        });
+      }
 
       window.addEventListener('resize', function(){
         ar.resize(window.innerWidth, window.innerHeight);

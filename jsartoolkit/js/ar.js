@@ -16,7 +16,7 @@ class AR{
     //console.log(settings);
     window.DEBUG = settings.debug; // JSARToolKit uses a global DEBUG variable (!)
     this.scale = settings.scale || 49; // size of the markers in real life in mm
-    this.threshold = settings.threshold || 100;  // (100)
+    this._threshold = settings.threshold || 100;  // (100)
     this.camera = settings.camera;
     this.video = settings.video;
     this.video.loop = true;
@@ -73,10 +73,15 @@ class AR{
   }
 
 
+  setThreshold(value){
+    this._threshold = value;
+  }
+
+
   _tick(){
     this.captureContext.drawImage(this.video, 0, 0, this.captureCanvas.width, this.captureCanvas.height);
     this.captureCanvas.changed = true;
-    let detected = this.detector.detectMarkerLite(this.raster, this.threshold);
+    let detected = this.detector.detectMarkerLite(this.raster, this._threshold);
 
     if(detected){
       this.detector.getTransformMatrix(this.resultMatrix);
