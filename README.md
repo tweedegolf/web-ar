@@ -38,3 +38,4 @@ You'll find 2 examples of working configuration files in the data folder: `setti
 
 Note that settings1.json does not work in the jsaruco version because the marker used in the video is not a valid jsaruco marker.
 
+More information see this [blogpost](https://tweedegolf.nl/blog/11/augmented-reality-with-web-technologies)
